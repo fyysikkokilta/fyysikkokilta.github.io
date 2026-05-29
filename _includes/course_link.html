@@ -1,0 +1,16 @@
+{% assign candidates = site.pages | where: "course_code", include.code %}
+{% assign target = candidates | where: "lang", page.lang | first %}
+
+{% unless target %}
+  {% assign target = candidates | where: "lang", include.fallback_lang | first %}
+{% endunless %}
+
+{% unless target %}
+  {% assign target = candidates | first %}
+{% endunless %}
+
+{% if target %}
+  <a href="{{ target.url | relative_url }}">{{ include.text | default: target.title }}</a>
+{% else %}
+  {{ include.text | default: include.code }}
+{% endif %}

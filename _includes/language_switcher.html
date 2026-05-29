@@ -1,0 +1,13 @@
+{% assign translations = site.pages | where: "course_code", page.course_code %}
+
+{% if translations.size > 1 %}
+<nav class="language-switcher">
+  {% for translation in translations %}
+    {% if translation.lang == page.lang %}
+      <strong>{{ translation.lang }}</strong>
+    {% else %}
+      <a href="{{ translation.url | relative_url }}">{{ translation.lang }}</a>
+    {% endif %}
+  {% endfor %}
+</nav>
+{% endif %}
