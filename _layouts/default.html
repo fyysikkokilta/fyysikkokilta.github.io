@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'fi' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+    {% if page.title %}
+      {{ page.title }} | {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div>
+        <a class="site-title" href="{{ '/' | relative_url }}">
+          {{ site.title | default: "Fyysikkokillan varjo-opinto-opas" }}
+        </a>
+
+        {% if site.description %}
+          <p class="site-description">{{ site.description }}</p>
+        {% endif %}
+      </div>
+
+      <nav class="site-nav">
+        <a href="{{ '/' | relative_url }}">Etusivu</a>
+        <a href="{{ '/kurssit/' | relative_url }}">Kurssit</a>
+        {% if site.github.repository_url %}
+          <a href="{{ site.github.repository_url }}">GitHub</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  {{ content }}
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>
+        Fyysikkokillan varjo-opinto-opas
+        {% if site.github.repository_url %}
+          · <a href="{{ site.github.repository_url }}">GitHub</a>
+        {% endif %}
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

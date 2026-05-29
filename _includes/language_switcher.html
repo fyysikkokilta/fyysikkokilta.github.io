@@ -1,13 +1,21 @@
-{% assign translations = site.pages | where: "course_code", page.course_code %}
+{% if page.course_code %}
+  {% assign translations = site.pages | where: "course_code", page.course_code %}
 
-{% if translations.size > 1 %}
-<nav class="language-switcher">
-  {% for translation in translations %}
-    {% if translation.lang == page.lang %}
-      <strong>{{ translation.lang }}</strong>
-    {% else %}
-      <a href="{{ translation.url | relative_url }}">{{ translation.lang }}</a>
-    {% endif %}
-  {% endfor %}
-</nav>
+  <nav class="language-switcher">
+    {% assign languages = "fi,en,sv" | split: "," %}
+
+    {% for lang in languages %}
+      {% assign translation = translations | where: "lang", lang | first %}
+
+      {% if translation %}
+        {% if translation.url == page.url %}
+          <strong>{{ lang }}</strong>
+        {% else %}
+          <a href="{{ translation.url | relative_url }}">{{ lang }}</a>
+        {% endif %}
+      {% else %}
+        <span class="missing-language">{{ lang }}</span>
+      {% endif %}
+    {% endfor %}
+  </nav>
 {% endif %}
