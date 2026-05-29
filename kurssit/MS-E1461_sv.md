@@ -45,7 +45,7 @@ Liksom andra vanliga matematikkurser på magisternivå kräver kursen mycket arb
 
 ### Total arbetsmängd
 
-3/5
+{% include stars.html count=3 %}
 
 ### Veckoinnehåll
 
@@ -67,7 +67,7 @@ Kursen kan bedömas på två sätt:
 
 ### Officiella förkunskaper
 
-{% include course_link.html code="MS-A00XX" text="MS-A00XX" fallback_lang="sv" %}, {% include course_link.html code="MS-A01XX" text="MS-A01XX" fallback_lang="sv" %}, {% include course_link.html code="MS-C1540" text="MS-C1540" fallback_lang="sv" %}
+{% include k.html id="MS-A00XX" f="sv" %}, {% include k.html id="MS-A01XX" f="sv" %}, {% include k.html id="MS-C1540" f="sv" %}
 
 ### Ytterligare förkunskaper
 
@@ -75,7 +75,7 @@ Metriska rum och linjär algebra rekommenderas.
 
 ### Liknande kurser
 
-{% include course_link.html code="MS-E1462" text="MS-E1462: Banachrum" fallback_lang="sv" %}
+{% include k.html id="MS-E1462" t="MS-E1462: Banach Spaces" f="sv" %}
 
 ## Trivia
 

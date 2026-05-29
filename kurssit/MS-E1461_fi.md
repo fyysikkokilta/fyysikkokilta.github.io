@@ -35,7 +35,7 @@ Aiheisiin kuuluvat Jordanin--von Neumannin lause, Hilbertin avaruuksien Rieszin 
 
 ### Viralliset materiaalit
 
-Kurssilla on melko hyvät luentomuistiinpanot, jotka ovat saatavilla PDF- ja LaTeX-muodossa. Ne riittävät hyvin kurssin suorittamiseen. Lisäksi saatavilla on vuoden 2021 luentovideoita, jotka kattavat lähes samat aiheet kuin varsinaiset luennot.
+Kurssilla on melko hyvät LaTeXilla kirjoitetut luentomuistiinpanot. Ne riittävät hyvin kurssin suorittamiseen. Lisäksi saatavilla on vuoden 2021 luentovideoita, jotka kattavat lähes samat aiheet kuin varsinaiset luennot.
 
 ### Lisämateriaalit
 
@@ -45,7 +45,7 @@ Kuten muutkin tavalliset maisteritason matematiikan kurssit, tämä kurssi vaati
 
 ### Kokonaistyöläys
 
-3/5
+{% include stars.html count=3 %}
 
 ### Viikkosisältö
 
@@ -67,15 +67,15 @@ Kurssin voi suorittaa kahdella tavalla:
 
 ### Viralliset esitiedot
 
-{% include course_link.html code="MS-A00XX" text="MS-A00XX" fallback_lang="fi" %}, {% include course_link.html code="MS-A01XX" text="MS-A01XX" fallback_lang="fi" %}, {% include course_link.html code="MS-C1540" text="MS-C1540" fallback_lang="fi" %}
+{% include k.html id="MS-A00XX" %}, {% include k.html id="MS-A01XX" %}, {% include k.html id="MS-C1540" %}
 
 ### Epäviralliset esitiedot
 
-Metriset avaruudet ja lineaarialgebra ovat suositeltavia esitietoja.
+Metriset avaruudet ehdottomasti ja lineaarialgebra kannattaa käydä.
 
 ### Samankaltaisia kursseja
 
-{% include course_link.html code="MS-E1462" text="MS-E1462: Banachin avaruudet" fallback_lang="fi" %}
+{% include k.html id="MS-E1462" t="MS-E1462: Banach Spaces" f="fi" %}
 
 ## Trivia
 
