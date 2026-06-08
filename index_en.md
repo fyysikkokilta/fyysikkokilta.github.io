@@ -22,6 +22,11 @@ This site collects students' experiences of courses in physics, mathematics, and
 
 [See all courses]({{ "/en/kurssit/" | relative_url }})
 
+## Degree Programmes
+
+- [Engineering Physics]({{ "/en/ohjelmat/SCI3028/" | relative_url }})
+- [Mathematics and Systems Sciences]({{ "/en/ohjelmat/SCI3029/" | relative_url }})
+
 ## Note
 
 This is an unofficial guide. Official course information should always be checked from Sisu, MyCourses, or the course's own pages.

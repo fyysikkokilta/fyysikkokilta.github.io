@@ -22,6 +22,11 @@ Den här webbplatsen samlar studenters erfarenheter av kurser i fysik, matematik
 
 [Se alla kurser]({{ "/sv/kurssit/" | relative_url }})
 
+## Studieprogram
+
+- [Teknisk fysik]({{ "/sv/ohjelmat/SCI3028/" | relative_url }})
+- [Matematik och systemvetenskap]({{ "/sv/ohjelmat/SCI3029/" | relative_url }})
+
 ## Observera
 
 Det här är en inofficiell guide. Kursernas officiella information bör alltid kontrolleras i Sisu, MyCourses eller på kursens egna sidor.

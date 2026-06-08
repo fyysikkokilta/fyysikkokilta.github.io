@@ -22,6 +22,11 @@ Tämä sivusto kokoaa opiskelijoiden kokemuksia fysiikan, matematiikan ja lähia
 
 [Katso kaikki kurssit]({{ "/kurssit/" | relative_url }})
 
+## Opetusohjelmat
+
+- [Teknillinen fysiikka]({{ "/ohjelmat/SCI3028/" | relative_url }})
+- [Matematiikka ja systeemitieteet]({{ "/ohjelmat/SCI3029/" | relative_url }})
+
 ## Huomautus
 
 Tämä on epävirallinen opas. Kurssien viralliset tiedot kannattaa aina tarkistaa Sisusta, MyCoursesista tai kurssin omilta sivuilta.

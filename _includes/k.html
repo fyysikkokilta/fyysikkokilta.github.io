@@ -1,1 +1,2 @@
-{%- include course_link.html code=include.id text=include.t fallback_lang=include.f -%}
+{%- assign link_text = include.t | default: include.id -%}
+{%- include course_link.html code=include.id text=link_text fallback_lang=include.f -%}
