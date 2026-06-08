@@ -8,10 +8,29 @@
   </thead>
   <tbody>
     {% assign courses = site.pages | sort: "course_code" %}
+    {% assign pattern_prefix = include.pattern | split: "XX" | first %}
 
     {% for course in courses %}
       {% if course.course_code %}
-        {% if course.lang == course.default_lang or course.default_lang == nil %}
+        {% assign pattern_matches = true %}
+
+        {% if include.pattern %}
+          {% assign course_prefix = course.course_code | slice: 0, pattern_prefix.size %}
+
+          {% if course_prefix != pattern_prefix %}
+            {% assign pattern_matches = false %}
+          {% endif %}
+        {% endif %}
+
+        {% if pattern_matches %}
+          {% assign is_default_course_page = false %}
+
+          {% if course.lang == course.default_lang or course.default_lang == nil %}
+            {% assign is_default_course_page = true %}
+          {% endif %}
+        {% endif %}
+
+        {% if pattern_matches and is_default_course_page %}
           {% assign translations = site.pages | where: "course_code", course.course_code %}
           {% assign target = translations | where: "lang", page.lang | first %}
 

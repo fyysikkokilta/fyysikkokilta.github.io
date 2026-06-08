@@ -9,5 +9,32 @@
   {%- endunless -%}
   <a class="course-link course-link-existing" href="{{ target.url | relative_url }}">{{ include.text | default: target.title }}</a>
 {%- else -%}
-  <span class="course-link course-link-missing">{{ include.text | default: include.code }}</span>
+  {%- assign pattern_candidates = site.pages | where: "course_pattern", include.code -%}
+  {%- assign pattern_match_count = 0 -%}
+
+  {%- if pattern_candidates.size > 0 and include.code contains "XX" -%}
+    {%- assign pattern_prefix = include.code | split: "XX" | first -%}
+
+    {%- for course in site.pages -%}
+      {%- if course.course_code -%}
+        {%- assign course_prefix = course.course_code | slice: 0, pattern_prefix.size -%}
+        {%- if course_prefix == pattern_prefix -%}
+          {%- assign pattern_match_count = pattern_match_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  {%- if pattern_match_count > 0 -%}
+    {%- assign target = pattern_candidates | where: "lang", page.lang | first -%}
+    {%- unless target -%}
+      {%- assign target = pattern_candidates | where: "lang", include.fallback_lang | first -%}
+    {%- endunless -%}
+    {%- unless target -%}
+      {%- assign target = pattern_candidates | first -%}
+    {%- endunless -%}
+    <a class="course-link course-link-existing" href="{{ target.url | relative_url }}">{{ include.text | default: include.code }}</a>
+  {%- else -%}
+    <span class="course-link course-link-missing">{{ include.text | default: include.code }}</span>
+  {%- endif -%}
 {%- endif -%}
