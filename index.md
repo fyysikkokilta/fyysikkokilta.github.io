@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Fyysikkokillan varjo-opinto-opas"
+translation_key: home
 lang: fi
 permalink: /
 ---

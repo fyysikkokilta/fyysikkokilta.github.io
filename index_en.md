@@ -1,0 +1,27 @@
+---
+layout: page
+title: "Fyysikkokilta shadow study guide"
+translation_key: home
+lang: en
+permalink: /en/
+---
+
+Welcome to Fyysikkokilta's shadow study guide.
+
+This site collects students' experiences of courses in physics, mathematics, and nearby fields. It is not meant to replace the official study guide, but to complement it with practical information.
+
+## What can you find here?
+
+- Course descriptions from a student's point of view.
+- Estimates of course workload.
+- Unofficial prerequisite recommendations.
+- Links to similar and follow-up courses.
+- Tips about course materials and course practices.
+
+## Start here
+
+[See all courses]({{ "/kurssit/" | relative_url }})
+
+## Note
+
+This is an unofficial guide. Official course information should always be checked from Sisu, MyCourses, or the course's own pages.
