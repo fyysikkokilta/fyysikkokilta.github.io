@@ -17,13 +17,15 @@
   <header class="site-header">
     <div class="site-header-inner">
       <div class="site-branding">
-        <a class="site-title" href="{{ '/' | relative_url }}">
-          <img class="site-logo" src="{{ '/kuvat/fii.svg' | relative_url }}" alt="" aria-hidden="true">
-          <span>{{ site.title | default: "Fyysikkokillan varjo-opinto-opas" }}</span>
+        <a class="site-branding-link" href="{{ '/' | relative_url }}">
+          <img class="site-logo" src="{{ '/kuvat/fii.svg' | relative_url }}" width="44" height="44" alt="" aria-hidden="true">
+          <span class="site-branding-text">
+            <span class="site-title">{{ site.title | default: "Fyysikkokillan varjo-opinto-opas" }}</span>
+            {% if site.description %}
+              <span class="site-description">{{ site.description }}</span>
+            {% endif %}
+          </span>
         </a>
-        {% if site.description %}
-          <p class="site-description">{{ site.description }}</p>
-        {% endif %}
       </div>
       <nav class="site-nav">
         <a href="{{ '/' | relative_url }}">Etusivu</a>

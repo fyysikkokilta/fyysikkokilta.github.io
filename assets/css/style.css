@@ -21,26 +21,33 @@ body {
 .site-branding {
   min-width: 0;
 }
-.site-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #267CB9;
+.site-branding-link {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
+  min-width: 0;
 }
 .site-logo {
   width: 2.4rem;
   height: 2.4rem;
+  max-width: 2.4rem;
   flex: 0 0 auto;
   display: block;
 }
-.site-title span {
+.site-branding-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
   min-width: 0;
 }
+.site-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #267CB9;
+}
 .site-description {
-  margin: 0.2rem 0 0;
+  margin-top: 0.2rem;
   color: #777;
   font-size: 0.95rem;
 }
@@ -159,5 +166,6 @@ body {
   .site-logo {
     width: 2rem;
     height: 2rem;
+    max-width: 2rem;
   }
 }
