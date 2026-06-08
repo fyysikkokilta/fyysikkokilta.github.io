@@ -18,11 +18,26 @@ body {
   gap: 1rem;
   align-items: center;
 }
+.site-branding {
+  min-width: 0;
+}
 .site-title {
   font-size: 1.35rem;
   font-weight: 700;
   color: #267CB9;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.site-logo {
+  width: 2.4rem;
+  height: 2.4rem;
+  flex: 0 0 auto;
+  display: block;
+}
+.site-title span {
+  min-width: 0;
 }
 .site-description {
   margin: 0.2rem 0 0;
@@ -129,4 +144,20 @@ body {
 .stars {
   color: #f5a623;
   font-size: 1.2em;
+}
+
+@media (max-width: 640px) {
+  .site-header-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-title {
+    font-size: 1.15rem;
+  }
+
+  .site-logo {
+    width: 2rem;
+    height: 2rem;
+  }
 }

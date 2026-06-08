@@ -16,9 +16,10 @@
 <body>
   <header class="site-header">
     <div class="site-header-inner">
-      <div>
+      <div class="site-branding">
         <a class="site-title" href="{{ '/' | relative_url }}">
-          {{ site.title | default: "Fyysikkokillan varjo-opinto-opas" }}
+          <img class="site-logo" src="{{ '/kuvat/fii.svg' | relative_url }}" alt="" aria-hidden="true">
+          <span>{{ site.title | default: "Fyysikkokillan varjo-opinto-opas" }}</span>
         </a>
         {% if site.description %}
           <p class="site-description">{{ site.description }}</p>
