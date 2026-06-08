@@ -24,8 +24,15 @@ This site collects students' experiences of courses in physics, mathematics, and
 
 ## Degree Programmes
 
+### Bachelor's Programmes
+
 - [Engineering Physics]({{ "/en/ohjelmat/SCI3028/" | relative_url }})
 - [Mathematics and Systems Sciences]({{ "/en/ohjelmat/SCI3029/" | relative_url }})
+
+### Master's Programmes
+
+- [Engineering Physics]({{ "/ohjelmat/engineering-physics-msc/" | relative_url }})
+- [Mathematics and Operations Research]({{ "/ohjelmat/mathor-msc/" | relative_url }})
 
 ## Note
 

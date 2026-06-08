@@ -24,8 +24,15 @@ Tämä sivusto kokoaa opiskelijoiden kokemuksia fysiikan, matematiikan ja lähia
 
 ## Opetusohjelmat
 
+### Kandidaattiohjelmat
+
 - [Teknillinen fysiikka]({{ "/ohjelmat/SCI3028/" | relative_url }})
 - [Matematiikka ja systeemitieteet]({{ "/ohjelmat/SCI3029/" | relative_url }})
+
+### Maisteriohjelmat
+
+- [Engineering Physics]({{ "/fi/ohjelmat/engineering-physics-msc/" | relative_url }})
+- [Mathematics and Operations Research]({{ "/fi/ohjelmat/mathor-msc/" | relative_url }})
 
 ## Huomautus
 

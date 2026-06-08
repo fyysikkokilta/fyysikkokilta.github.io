@@ -24,8 +24,15 @@ Den här webbplatsen samlar studenters erfarenheter av kurser i fysik, matematik
 
 ## Studieprogram
 
+### Kandidatprogram
+
 - [Teknisk fysik]({{ "/sv/ohjelmat/SCI3028/" | relative_url }})
 - [Matematik och systemvetenskap]({{ "/sv/ohjelmat/SCI3029/" | relative_url }})
+
+### Magisterprogram
+
+- [Engineering Physics]({{ "/sv/ohjelmat/engineering-physics-msc/" | relative_url }})
+- [Mathematics and Operations Research]({{ "/sv/ohjelmat/mathor-msc/" | relative_url }})
 
 ## Observera
 
