@@ -1,0 +1,45 @@
+<table class="course-list">
+  <thead>
+    <tr>
+      <th>{{ include.code_heading }}</th>
+      <th>{{ include.course_heading }}</th>
+      <th>{{ include.teaching_language_heading }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% assign courses = site.pages | sort: "course_code" %}
+
+    {% for course in courses %}
+      {% if course.course_code %}
+        {% if course.lang == course.default_lang or course.default_lang == nil %}
+          {% assign translations = site.pages | where: "course_code", course.course_code %}
+          {% assign target = translations | where: "lang", page.lang | first %}
+
+          {% unless target %}
+            {% assign target = translations | where: "lang", course.default_lang | first %}
+          {% endunless %}
+
+          {% unless target %}
+            {% assign target = translations | first %}
+          {% endunless %}
+
+          <tr>
+            <td>
+              <a href="{{ target.url | relative_url }}">
+                {{ target.course_code }}
+              </a>
+            </td>
+            <td>
+              <a href="{{ target.url | relative_url }}">
+                {{ target.short_title | default: target.title }}
+              </a>
+            </td>
+            <td>
+              {{ course.default_lang | default: course.lang | default: "?" }}
+            </td>
+          </tr>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </tbody>
+</table>

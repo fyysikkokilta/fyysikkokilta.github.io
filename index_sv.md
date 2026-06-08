@@ -20,7 +20,7 @@ Den här webbplatsen samlar studenters erfarenheter av kurser i fysik, matematik
 
 ## Börja här
 
-[Se alla kurser]({{ "/kurssit/" | relative_url }})
+[Se alla kurser]({{ "/sv/kurssit/" | relative_url }})
 
 ## Observera
 

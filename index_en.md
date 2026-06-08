@@ -20,7 +20,7 @@ This site collects students' experiences of courses in physics, mathematics, and
 
 ## Start here
 
-[See all courses]({{ "/kurssit/" | relative_url }})
+[See all courses]({{ "/en/kurssit/" | relative_url }})
 
 ## Note
 
