@@ -293,16 +293,31 @@ a:focus-visible {
   text-decoration: none;
 }
 
-.page-content table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+.table-scroll {
+  max-width: 100%;
   margin: 1.2rem 0 1.6rem;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
+  -webkit-overflow-scrolling: touch;
+}
+
+.page-content table {
+  width: 100%;
+  min-width: 100%;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   font-size: 0.95rem;
+}
+
+.table-scroll table:has(tr > :nth-child(4)) {
+  min-width: 40rem;
 }
 
 .page-content th,
@@ -335,8 +350,6 @@ a:focus-visible {
 
 .page-content td:first-child,
 .page-content th:first-child {
-  width: 8rem;
-  min-width: 8rem;
   text-align: center;
   font-weight: 750;
 }
@@ -393,6 +406,12 @@ a:focus-visible {
 .course-list th,
 .course-list td {
   padding: 0.75rem 0.9rem;
+}
+
+.course-list th:first-child,
+.course-list td:first-child {
+  width: 8rem;
+  min-width: 8rem;
 }
 
 .course-list td:first-child,
@@ -506,12 +525,6 @@ a:focus-visible {
 
   .page-content h2 {
     font-size: 1.28rem;
-  }
-
-  .page-content table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
   }
 
   .course-filters {
