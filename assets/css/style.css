@@ -397,8 +397,7 @@ a:focus-visible {
 
 .course-list td:first-child,
 .course-list td:nth-child(3),
-.course-list td:nth-child(4),
-.course-list td:nth-child(5) {
+.course-list td:nth-child(4) {
   white-space: nowrap;
 }
 

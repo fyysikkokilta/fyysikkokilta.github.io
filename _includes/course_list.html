@@ -145,7 +145,6 @@
         <th>{{ include.course_heading }}</th>
         <th>{{ credits_heading }}</th>
         <th>{{ include.teaching_language_heading }}</th>
-        <th>{{ last_reviewed_heading }}</th>
       </tr>
     </thead>
     <tbody>
@@ -210,9 +209,6 @@
             </td>
             <td>
               {{ teaching_language }}
-            </td>
-            <td>
-              {{ target.last_reviewed | default: "–" }}
             </td>
           </tr>
         {% endif %}

@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "Fyysikkokiltas skuggstudieguide"
+title: "Fysikergillets skuggstudieguide"
 translation_key: home
 lang: sv
 permalink: /sv/
 ---
 
-Välkommen till Fyysikkokiltas skuggstudieguide.
+Välkommen till Fysikergillets skuggstudieguide.
 
 Den här webbplatsen samlar studenters erfarenheter av kurser i fysik, matematik och närliggande områden. Syftet är inte att ersätta den officiella studiehandboken, utan att komplettera den med praktisk information.
 

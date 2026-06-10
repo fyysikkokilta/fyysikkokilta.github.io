@@ -1,13 +1,36 @@
+{% assign current_lang = page.lang | default: site.lang | default: 'fi' %}
+{% if current_lang == 'en' %}
+  {% assign site_title = 'The Guild of Physics shadow study guide' %}
+  {% assign site_description = "The Guild of Physics' unofficial course guide" %}
+  {% assign home_label = 'Home' %}
+  {% assign courses_label = 'Courses' %}
+  {% assign home_url = '/en/' %}
+  {% assign courses_url = '/en/kurssit/' %}
+{% elsif current_lang == 'sv' %}
+  {% assign site_title = 'Fysikergillets skuggstudieguide' %}
+  {% assign site_description = 'Fysikergillets inofficiella kursguide' %}
+  {% assign home_label = 'Hem' %}
+  {% assign courses_label = 'Kurser' %}
+  {% assign home_url = '/sv/' %}
+  {% assign courses_url = '/sv/kurssit/' %}
+{% else %}
+  {% assign site_title = site.title | default: 'Fyysikkokillan varjo-opinto-opas' %}
+  {% assign site_description = site.description %}
+  {% assign home_label = 'Etusivu' %}
+  {% assign courses_label = 'Kurssit' %}
+  {% assign home_url = '/' %}
+  {% assign courses_url = '/kurssit/' %}
+{% endif %}
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'fi' }}">
+<html lang="{{ current_lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
     {% if page.title %}
-      {{ page.title }} | {{ site.title }}
+      {{ page.title }} | {{ site_title }}
     {% else %}
-      {{ site.title }}
+      {{ site_title }}
     {% endif %}
   </title>
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
@@ -18,19 +41,19 @@
   <header class="site-header">
     <div class="site-header-inner">
       <div class="site-branding">
-        <a class="site-branding-link" href="{{ '/' | relative_url }}">
+        <a class="site-branding-link" href="{{ home_url | relative_url }}">
           <img class="site-logo" src="{{ '/kuvat/fii.svg' | relative_url }}" width="44" height="44" alt="" aria-hidden="true">
           <span class="site-branding-text">
-            <span class="site-title">{{ site.title | default: "Fyysikkokillan varjo-opinto-opas" }}</span>
-            {% if site.description %}
-              <span class="site-description">{{ site.description }}</span>
+            <span class="site-title">{{ site_title }}</span>
+            {% if site_description %}
+              <span class="site-description">{{ site_description }}</span>
             {% endif %}
           </span>
         </a>
       </div>
       <nav class="site-nav">
-        <a href="{{ '/' | relative_url }}">Etusivu</a>
-        <a href="{{ '/kurssit/' | relative_url }}">Kurssit</a>
+        <a href="{{ home_url | relative_url }}">{{ home_label }}</a>
+        <a href="{{ courses_url | relative_url }}">{{ courses_label }}</a>
         {% if site.github.repository_url %}
           <a href="{{ site.github.repository_url }}">GitHub</a>
         {% endif %}

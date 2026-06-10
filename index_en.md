@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "Fyysikkokilta shadow study guide"
+title: "The Guild of Physics shadow study guide"
 translation_key: home
 lang: en
 permalink: /en/
 ---
 
-Welcome to Fyysikkokilta's shadow study guide.
+Welcome to The Guild of Physics' shadow study guide.
 
 This site collects students' experiences of courses in physics, mathematics, and nearby fields. It is not meant to replace the official study guide, but to complement it with practical information.
 
