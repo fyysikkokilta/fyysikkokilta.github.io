@@ -3,6 +3,8 @@ layout: page
 title: "MS-E1461: Hilbertrum"
 course_code: MS-E1461
 short_title: Hilbertrum
+credits: 5
+last_reviewed: 2025
 lang: sv
 default_lang: en
 permalink: /sv/kurssit/MS-E1461/

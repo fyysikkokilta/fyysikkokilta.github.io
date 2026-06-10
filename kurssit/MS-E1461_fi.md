@@ -3,6 +3,8 @@ layout: page
 title: "MS-E1461: Hilbertin avaruudet"
 course_code: MS-E1461
 short_title: Hilbertin avaruudet
+credits: 5
+last_reviewed: 2025
 lang: fi
 default_lang: en
 permalink: /fi/kurssit/MS-E1461/

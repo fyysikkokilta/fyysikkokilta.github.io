@@ -1,14 +1,154 @@
-<table class="course-list">
-  <thead>
-    <tr>
-      <th>{{ include.code_heading }}</th>
-      <th>{{ include.course_heading }}</th>
-      <th>{{ include.teaching_language_heading }}</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% assign courses = site.pages | sort: "course_code" %}
-    {% assign pattern_prefix = include.pattern | split: "XX" | first %}
+{% assign courses = site.pages | sort: "course_code" %}
+{% assign pattern_prefix = include.pattern | split: "XX" | first %}
+{% assign credits_heading = include.credits_heading %}
+{% assign last_reviewed_heading = include.last_reviewed_heading %}
+{% assign search_label = include.search_label %}
+{% assign all_languages_label = include.all_languages_label %}
+{% assign all_credits_label = include.all_credits_label %}
+{% assign all_reviews_label = include.all_reviews_label %}
+{% assign no_results_label = include.no_results_label %}
+
+{% if page.lang == "en" %}
+  {% assign credits_heading = credits_heading | default: "Credits" %}
+  {% assign last_reviewed_heading = last_reviewed_heading | default: "Last reviewed" %}
+  {% assign search_label = search_label | default: "Search courses" %}
+  {% assign all_languages_label = all_languages_label | default: "All languages" %}
+  {% assign all_credits_label = all_credits_label | default: "All credits" %}
+  {% assign all_reviews_label = all_reviews_label | default: "Any review year" %}
+  {% assign no_results_label = no_results_label | default: "No courses match the current filters." %}
+{% elsif page.lang == "sv" %}
+  {% assign credits_heading = credits_heading | default: "Sp" %}
+  {% assign last_reviewed_heading = last_reviewed_heading | default: "Senast granskad" %}
+  {% assign search_label = search_label | default: "Sök kurser" %}
+  {% assign all_languages_label = all_languages_label | default: "Alla språk" %}
+  {% assign all_credits_label = all_credits_label | default: "Alla studiepoäng" %}
+  {% assign all_reviews_label = all_reviews_label | default: "Alla granskningsår" %}
+  {% assign no_results_label = no_results_label | default: "Inga kurser matchar filtren." %}
+{% else %}
+  {% assign credits_heading = credits_heading | default: "Op" %}
+  {% assign last_reviewed_heading = last_reviewed_heading | default: "Päivitetty" %}
+  {% assign search_label = search_label | default: "Hae kursseja" %}
+  {% assign all_languages_label = all_languages_label | default: "Kaikki kielet" %}
+  {% assign all_credits_label = all_credits_label | default: "Kaikki opintopisteet" %}
+  {% assign all_reviews_label = all_reviews_label | default: "Kaikki päivitysvuodet" %}
+  {% assign no_results_label = no_results_label | default: "Yksikään kurssi ei vastaa nykyisiä suodattimia." %}
+{% endif %}
+
+{% assign language_options = "" %}
+{% assign credits_options = "" %}
+{% assign reviewed_options = "" %}
+
+{% for course in courses %}
+  {% if course.course_code %}
+    {% assign pattern_matches = true %}
+
+    {% if include.pattern %}
+      {% assign course_prefix = course.course_code | slice: 0, pattern_prefix.size %}
+
+      {% if course_prefix != pattern_prefix %}
+        {% assign pattern_matches = false %}
+      {% endif %}
+    {% endif %}
+
+    {% if pattern_matches %}
+      {% assign is_default_course_page = false %}
+
+      {% if course.lang == course.default_lang or course.default_lang == nil %}
+        {% assign is_default_course_page = true %}
+      {% endif %}
+    {% endif %}
+
+    {% if pattern_matches and is_default_course_page %}
+      {% assign translations = site.pages | where: "course_code", course.course_code %}
+      {% assign target = translations | where: "lang", page.lang | first %}
+
+      {% unless target %}
+        {% assign target = translations | where: "lang", course.default_lang | first %}
+      {% endunless %}
+
+      {% unless target %}
+        {% assign target = translations | first %}
+      {% endunless %}
+
+      {% assign teaching_language = course.default_lang | default: course.lang | default: "?" %}
+      {% assign language_token = "|" | append: teaching_language | append: "|" %}
+      {% unless language_options contains language_token %}
+        {% assign language_options = language_options | append: language_token %}
+      {% endunless %}
+
+      {% if target.credits %}
+        {% assign credits_token = "|" | append: target.credits | append: "|" %}
+        {% unless credits_options contains credits_token %}
+          {% assign credits_options = credits_options | append: credits_token %}
+        {% endunless %}
+      {% endif %}
+
+      {% if target.last_reviewed %}
+        {% assign reviewed_year = target.last_reviewed | append: "" | slice: 0, 4 %}
+        {% assign reviewed_token = "|" | append: reviewed_year | append: "|" %}
+        {% unless reviewed_options contains reviewed_token %}
+          {% assign reviewed_options = reviewed_options | append: reviewed_token %}
+        {% endunless %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+<div class="course-browser" data-course-browser>
+  <div class="course-filters" aria-label="{{ search_label }}">
+    <label class="course-filter course-filter-search">
+      <span>{{ search_label }}</span>
+      <input type="search" data-course-search autocomplete="off">
+    </label>
+    <label class="course-filter">
+      <span>{{ include.teaching_language_heading }}</span>
+      <select data-course-filter="language">
+        <option value="">{{ all_languages_label }}</option>
+        {% assign language_values = language_options | split: "|" | compact | sort %}
+        {% for language in language_values %}
+          {% if language != "" %}
+            <option value="{{ language | escape }}">{{ language }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </label>
+    <label class="course-filter">
+      <span>{{ credits_heading }}</span>
+      <select data-course-filter="credits">
+        <option value="">{{ all_credits_label }}</option>
+        {% assign credits_values = credits_options | split: "|" | compact | sort %}
+        {% for credits in credits_values %}
+          {% if credits != "" %}
+            <option value="{{ credits | escape }}">{{ credits }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </label>
+    <label class="course-filter">
+      <span>{{ last_reviewed_heading }}</span>
+      <select data-course-filter="reviewed">
+        <option value="">{{ all_reviews_label }}</option>
+        {% assign reviewed_values = reviewed_options | split: "|" | compact | sort | reverse %}
+        {% for reviewed in reviewed_values %}
+          {% if reviewed != "" %}
+            <option value="{{ reviewed | escape }}">{{ reviewed }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </label>
+  </div>
+
+  <table class="course-list">
+    <thead>
+      <tr>
+        <th>{{ include.code_heading }}</th>
+        <th>{{ include.course_heading }}</th>
+        <th>{{ credits_heading }}</th>
+        <th>{{ include.teaching_language_heading }}</th>
+        <th>{{ last_reviewed_heading }}</th>
+      </tr>
+    </thead>
+    <tbody>
 
     {% for course in courses %}
       {% if course.course_code %}
@@ -42,7 +182,19 @@
             {% assign target = translations | first %}
           {% endunless %}
 
-          <tr>
+          {% assign teaching_language = course.default_lang | default: course.lang | default: "?" %}
+          {% assign reviewed_year = "" %}
+          {% if target.last_reviewed %}
+            {% assign reviewed_year = target.last_reviewed | append: "" | slice: 0, 4 %}
+          {% endif %}
+          {% assign searchable_text = target.course_code | append: " " | append: target.short_title | append: " " | append: target.title | append: " " | append: teaching_language | append: " " | append: target.credits | append: " " | append: reviewed_year %}
+
+          <tr
+            data-course-row
+            data-search="{{ searchable_text | strip | downcase | escape }}"
+            data-language="{{ teaching_language | escape }}"
+            data-credits="{{ target.credits | escape }}"
+            data-reviewed="{{ reviewed_year | escape }}">
             <td>
               <a href="{{ target.url | relative_url }}">
                 {{ target.course_code }}
@@ -54,11 +206,22 @@
               </a>
             </td>
             <td>
-              {{ course.default_lang | default: course.lang | default: "?" }}
+              {{ target.credits | default: "–" }}
+            </td>
+            <td>
+              {{ teaching_language }}
+            </td>
+            <td>
+              {{ target.last_reviewed | default: "–" }}
             </td>
           </tr>
         {% endif %}
       {% endif %}
     {% endfor %}
-  </tbody>
-</table>
+    </tbody>
+  </table>
+
+  <p class="course-list-empty" data-course-empty hidden>{{ no_results_label }}</p>
+</div>
+
+<script defer src="{{ '/assets/js/course-filters.js' | relative_url }}"></script>
