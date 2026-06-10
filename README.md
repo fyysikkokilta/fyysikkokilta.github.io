@@ -72,7 +72,7 @@ git add .
 Tee commit:
 
 ```bash
-git commit -m "Lisää kurssisivu Hilbert-avaruuksista"
+git commit -m "Lisätty kurssi MS-E1461"
 ```
 
 Hyvä commit-viesti kertoo lyhyesti, mitä muuttui. Esimerkiksi:
@@ -106,7 +106,7 @@ Esimerkki tavallisesta sivusta:
 ---
 layout: page
 title: "Sivun otsikko"
-translation_key: oma-yksilollinen-avain
+translation_key: joku-yksilöllinen-nimi
 lang: fi
 permalink: /oma-sivu/
 ---
@@ -118,7 +118,7 @@ Tärkeät kentät:
 
 - `layout: page`: käyttää tavallista sivupohjaa `page`.
 - `title`: sivun otsikko.
-- `translation_key`: yhdistää saman sivun eri kieliversiot toisiinsa. (Ei tarvita kurssisivuilla)
+- `translation_key`: yhdistää saman sivun eri kieliversiot toisiinsa. Esim. `courses`. Käytä samaa nimeä kaikissa saman sivun eri kieliversioissa, mutta älä missään muissa sivuissa. (Tätä ei tarvita kurssisivuilla)
 - `lang`: sivun kieli, esimerkiksi `fi`, `en` tai `sv`.
 - `permalink`: sivun lopullinen osoite. (Muuta harkiten)
 
@@ -153,7 +153,7 @@ Tärkeät kurssikentät:
 - `short_title`: lyhyt nimi, jota käytetään kurssilistassa.
 - `credits`: opintopisteet.
 - `last_reviewed`: vuosi, jonka tietojen perusteella sivu on viimeksi tarkistettu.
-- `lang`: tämän sivun kieli. (Eroaa oletuskielestä vain kun sivu on käännös)
+- `lang`: tämän sivun kieli. (Eroaa oletuskielestä `default_lang` vain, kun sivu on käännös)
 - `default_lang`: kurssin opetuskieli. (Virallinen kieli)
 - `permalink`: sivun osoite.
 
@@ -230,7 +230,7 @@ Jos haluat, että linkki on ensisijaisesti tiettyyn kieliversioon:
 {% include k.html id="MS-E1461" f="sv" %}
 ```
 
-Työläyttä voi kuvata palkilla (asteikolla 1-5)
+Työläyttä voi kuvata palkilla (asteikolla 1-5):
 
 ```liquid
 {% include stars.html count=3 %}
