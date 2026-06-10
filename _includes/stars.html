@@ -1,7 +1,7 @@
 {% assign filled = include.count | default: 0 %}
 {% assign total = include.total | default: 5 %}
-<span class="stars" aria-label="{{ filled }}/{{ total }} tähteä">
+<span class="workload-meter" aria-label="{{ filled }}/{{ total }} kokonaistyöläys">
   {%- for i in (1..total) -%}
-    {%- if i <= filled -%}★{%- else -%}☆{%- endif -%}
+    <span class="workload-segment{% if i <= filled %} workload-segment-filled{% endif %}" aria-hidden="true"></span>
   {%- endfor -%}
 </span>
