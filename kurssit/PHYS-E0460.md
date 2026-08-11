@@ -70,7 +70,7 @@ Knowledge of separation of variables from partial differential equations is bene
 
 ### More like this
 
-- PHYS-E0467: Experimental Reactor Physics
-- PHYS-E0562: Nuclear Engineering, Advanced Course
+- {% include k.html id="PHYS-E0467" t="PHYS-E0467: Experimental Reactor Physics" %}
+- {% include k.html id="PHYS-E0562" t="PHYS-E0562: Nuclear Engineering, Advanced Course" %}
 
 ## Trivia

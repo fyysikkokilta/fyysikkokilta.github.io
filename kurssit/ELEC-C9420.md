@@ -64,18 +64,18 @@ The course is assessed via exam (at the end of Period II) and weekly exercise su
 
 ### Official prerequisites
 
-MS-A0011 Matrix Algebra is listed as a prerequisite (linear algebra is used throughout). Basic familiarity with complex numbers is assumed.
+{% include k.html id="MS-A0011" %} Matrix Algebra is listed as a prerequisite (linear algebra is used throughout). Basic familiarity with complex numbers is assumed.
 
 ### Additional prerequisites
 
-Some exposure to university-level physics (e.g. PHYS-C0110 Mechanics or PHYS-C0130 Electromagnetism) helps with physical intuition, though it is not formally required. Students comfortable with linear algebra and complex arithmetic will find the mathematical formalism significantly more approachable.
+Some exposure to university-level physics (e.g. {% include k.html id="PHYS-C0110" %} Mechanics or {% include k.html id="PHYS-C0130" %} Electromagnetism) helps with physical intuition, though it is not formally required. Students comfortable with linear algebra and complex arithmetic will find the mathematical formalism significantly more approachable.
 
 ### More like this
 
-- **ELEC-C9440** Quantum Information — a natural follow-up focusing on quantum information theory in more depth.
-- **PHYS-C0254** Quantum Circuits — covers quantum hardware and circuit design from a physics perspective.
-- **PHYS-E0565** Monte Carlo Particle Transport Simulations — shares the Materials Physics and Quantum Technology major context.
-- **MS-A0011** Matrix Algebra — the prerequisite linear algebra course; revisiting it alongside this course is beneficial.
+- {% include k.html id="ELEC-C9440" %} Quantum Information — a natural follow-up focusing on quantum information theory in more depth.
+- {% include k.html id="PHYS-C0254" %} Quantum Circuits — covers quantum hardware and circuit design from a physics perspective.
+- {% include k.html id="PHYS-E0565" %} Monte Carlo Particle Transport Simulations — shares the Materials Physics and Quantum Technology major context.
+- {% include k.html id="MS-A0011" %} Matrix Algebra — the prerequisite linear algebra course; revisiting it alongside this course is beneficial.
 
 ## Trivia
 

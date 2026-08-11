@@ -60,13 +60,13 @@ The evaluation criteria are approximately as follows: 70% from the final exam an
 
 ### Official prerequisites
 
-PHYS-C0253 Quantum Mechanics I
+{% include k.html id="PHYS-C0253" %} Quantum Mechanics I
 
 ### Additional prerequisites
 
 ### More like this
 
-- PHYS-C0240 Materiaalifysiikka (in Finnish)
+- {% include k.html id="PHYS-C0240" %} Materiaalifysiikka (in Finnish)
 
 ## Trivia
 

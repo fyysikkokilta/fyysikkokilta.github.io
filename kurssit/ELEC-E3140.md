@@ -65,11 +65,11 @@ Recommended prerequisite: Basic university physics.
 
 ### Additional prerequisites
 
-PHYS-C0240: Materiaalifysiikka is beneficial but not required. The most important topics are revised during the course.
+{% include k.html id="PHYS-C0240" t="PHYS-C0240: Materiaalifysiikka" %} is beneficial but not required. The most important topics are revised during the course.
 
 ### More like this
 
-- ELEC-E3220: Semiconductor Devices
-- PHYS-E6570: Solar Energy Engineering D
+- {% include k.html id="ELEC-E3220" t="ELEC-E3220: Semiconductor Devices" %}
+- {% include k.html id="PHYS-E6570" t="PHYS-E6570: Solar Energy Engineering D" %}
 
 ## Trivia

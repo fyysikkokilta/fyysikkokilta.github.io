@@ -67,13 +67,13 @@ At the end of the course, there is a final presentation in which each group pres
 
 ### Official prerequisites
 
-PHYS-C0252: Quantum mechanics
+{% include k.html id="PHYS-C0252" t="PHYS-C0252: Quantum mechanics" %}
 
-ELEC-C9430: Electromagnetism.
+{% include k.html id="ELEC-C9430" t="ELEC-C9430: Electromagnetism" %}.
 
 ### Additional prerequisites
 
-PHYS-C0254: Quantum Circuits
+{% include k.html id="PHYS-C0254" t="PHYS-C0254: Quantum Circuits" %}
 
 ### More like this
 

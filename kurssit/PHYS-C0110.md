@@ -55,16 +55,16 @@ The course is completed via weekly exercises and a final written exam. Exercise 
 
 ### Official prerequisites
 
-High school physics and mathematics. Concurrent enrolment in MS-A0111 Differential and Integral Calculus 1 is common and effectively required for following the derivations.
+High school physics and mathematics. Concurrent enrolment in {% include k.html id="MS-A0111" %} Differential and Integral Calculus 1 is common and effectively required for following the derivations.
 
 ### Additional prerequisites
 
 ### More like this
 
-- **PHYS-C0130** Electromagnetism — the natural follow-up covering electric and magnetic fields using similar methods.
-- **PHYS-C0220** Thermodynamics and Statistical Physics — another core physics course building on the same mathematical base.
-- **MS-A0111** Differential and Integral Calculus 1 — the mathematics course whose tools are used throughout Mechanics.
-- **PHYS-C0230** Classical Dynamics — a more advanced treatment of mechanics using Lagrangian and Hamiltonian methods.
+- {% include k.html id="PHYS-C0130" %} Electromagnetism — the natural follow-up covering electric and magnetic fields using similar methods.
+- {% include k.html id="PHYS-C0220" %} Thermodynamics and Statistical Physics — another core physics course building on the same mathematical base.
+- {% include k.html id="MS-A0111" %} Differential and Integral Calculus 1 — the mathematics course whose tools are used throughout Mechanics.
+- {% include k.html id="PHYS-C0230" %} Classical Dynamics — a more advanced treatment of mechanics using Lagrangian and Hamiltonian methods.
 
 ## Trivia
 

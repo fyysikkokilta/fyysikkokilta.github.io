@@ -68,11 +68,11 @@ Basic quantum mechanics, linear algebra, complex analysis, and recommended famil
 
 ### Additional prerequisites
 
-PHYS-C0230, PHYS-C0254, and ELEC-C9440 are helpful.
+{% include k.html id="PHYS-C0230" %}, {% include k.html id="PHYS-C0254" %}, and {% include k.html id="ELEC-C9440" %} are helpful.
 
 ### More like this
 
-- PHYS-E0431: Quantum Many-Body Physics 1 D
-- PHYS-E0434: Advanced Quantum Materials
+- {% include k.html id="PHYS-E0431" t="PHYS-E0431: Quantum Many-Body Physics 1 D" %}
+- {% include k.html id="PHYS-E0434" t="PHYS-E0434: Advanced Quantum Materials" %}
 
 ## Trivia

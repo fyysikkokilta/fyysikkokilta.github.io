@@ -19,7 +19,7 @@ permalink: /kurssit/PHYS-E0415/
 
 ## Description
 
-The course continues PHYS-C0220 Thermodynamics and Statistical Physics. The emphasis is on applying statistical mechanics to solve a wide variety of problems, ranging from phase transitions in condensed matter to applications outside traditional physics.
+The course continues {% include k.html id="PHYS-C0220" %} Thermodynamics and Statistical Physics. The emphasis is on applying statistical mechanics to solve a wide variety of problems, ranging from phase transitions in condensed matter to applications outside traditional physics.
 
 ## Course material
 
@@ -70,11 +70,11 @@ The presentation and computational project are completed in groups. Weekly exerc
 
 ### Official prerequisites
 
-Recommended prerequisites: PHYS-C0220 Thermodynamics and Statistical Physics and PHYS-C0210 Quantum Mechanics.
+Recommended prerequisites: {% include k.html id="PHYS-C0220" %} Thermodynamics and Statistical Physics and {% include k.html id="PHYS-C0210" %} Quantum Mechanics.
 
 ### Additional prerequisites
 
-PHYS-E0412 Computational Physics or similar computational experience is beneficial.
+{% include k.html id="PHYS-E0412" %} Computational Physics or similar computational experience is beneficial.
 
 ### More like this
 

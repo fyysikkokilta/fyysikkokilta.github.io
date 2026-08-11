@@ -59,7 +59,7 @@ The course is completed entirely through programming exercises, which also deter
 
 ### Official prerequisites
 
-PHYS-E0562 Nuclear Engineering, Advanced Course is recommended, together with basic programming skills.
+{% include k.html id="PHYS-E0562" %} Nuclear Engineering, Advanced Course is recommended, together with basic programming skills.
 
 ### Additional prerequisites
 
