@@ -2,6 +2,7 @@
 layout: page
 title: "PHYS-E0410: Quantum Mechanics 2 D"
 course_code: PHYS-E0410
+short_title: Quantum Mechanics 2 D
 credits: 5
 lang: en
 default_lang: en

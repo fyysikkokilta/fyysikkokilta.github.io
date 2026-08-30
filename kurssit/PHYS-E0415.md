@@ -2,6 +2,7 @@
 layout: page
 title: "PHYS-E0415: Statistical Mechanics"
 course_code: PHYS-E0415
+short_title: Statistical Mechanics
 credits: 5
 lang: en
 default_lang: en
