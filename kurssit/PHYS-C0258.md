@@ -3,7 +3,7 @@ layout: page
 title: "PHYS-C0258: Quantum Labs"
 course_code: PHYS-C0258
 credits: 5
-last_reviewed:
+last_reviewed: 2025
 short_title: Quantum Labs
 lang: en
 default_lang: en
@@ -35,9 +35,9 @@ There is an instruction sheet for each experiment with some additional theoretic
 
 The course is completed in groups of four. There are five different experiments, and groups get randomly assigned to four of them.
 
-### Overall workload, balls
+### Overall workload
 
-Balls: 4
+{% include stars.html count=4 %}
 
 The workload is based on having to find suitable times for all the group members to join the experiments — which can be quite difficult sometimes — and having to write a report on all four experiments. (one report/group member) The actual workload depends greatly on the experiments assigned to you as some of them require more data analysis than others.
 

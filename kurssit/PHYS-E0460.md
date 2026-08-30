@@ -3,8 +3,6 @@ layout: page
 title: "PHYS-E0460: Introduction to Reactor Physics"
 course_code: PHYS-E0460
 credits: 5
-last_reviewed:
-short_title: Introduction to Reactor Physics
 lang: en
 default_lang: en
 permalink: /kurssit/PHYS-E0460/

@@ -3,7 +3,7 @@ layout: page
 title: "ELEC-C9420: Introduction to Quantum Technology"
 course_code: ELEC-C9420
 credits: 5
-last_reviewed:
+last_reviewed: 2025
 short_title: Introduction to Quantum Technology
 lang: en
 default_lang: en
@@ -41,6 +41,8 @@ The Qiskit textbook *Learn Quantum Computation using Qiskit* (freely available a
 ## Contents and workload
 
 ### Overall workload
+
+{% include stars.html count=3 %}
 
 The official breakdown is: lectures 48h, exercise groups 24h, independent study 53h, for a total of approximately 125h over the two periods. In practice this means around 8–10 hours per week. The workload is relatively uniform across the course, though weeks introducing the mathematical formalism of quantum mechanics (Dirac notation, density matrices) require more concentrated effort. Weekly exercise submission is mandatory for grade contributions; lectures and exercise sessions are otherwise voluntary.
 

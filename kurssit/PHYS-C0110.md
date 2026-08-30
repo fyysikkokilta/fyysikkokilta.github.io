@@ -3,7 +3,7 @@ layout: page
 title: "PHYS-C0110: Mechanics"
 course_code: PHYS-C0110
 credits: 5
-last_reviewed:
+last_reviewed: 2025
 short_title: Mechanics
 lang: en
 default_lang: en
@@ -32,6 +32,8 @@ Lecture slides are distributed via MyCourses and track the textbook chapters. We
 ## Contents and workload
 
 ### Overall workload
+
+{% include stars.html count=3 %}
 
 The course runs in Period I and is 5 ECTS compressed into roughly 6–7 weeks. The workload is around 12–15 hours per week. The early weeks on kinematics and Newton's laws are more straightforward, while rotational dynamics and oscillations in the later weeks require significantly more effort. Students who have not studied physics in upper secondary school at a high level often find the initial conceptual jump significant despite the mathematical tools being relatively simple.
 

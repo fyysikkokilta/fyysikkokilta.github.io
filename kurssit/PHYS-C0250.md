@@ -3,7 +3,7 @@ layout: page
 title: "PHYS-C0250: Quantum Materials"
 course_code: PHYS-C0250
 credits: 5
-last_reviewed:
+last_reviewed: 2025
 short_title: Quantum Materials
 lang: en
 default_lang: en
@@ -33,9 +33,9 @@ There is a lecture note -pdf, which covers all the topics discussed during the c
 
 ## Contents and workload
 
-### Overall workload, balls
+### Overall workload
 
-Balls: 3
+{% include stars.html count=3 %}
 
 ### Weekly contents
 

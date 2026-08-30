@@ -3,8 +3,6 @@ layout: page
 title: "ELEC-E3140: Semiconductor Physics"
 course_code: ELEC-E3140
 credits: 5
-last_reviewed:
-short_title: Semiconductor Physics
 lang: en
 default_lang: en
 permalink: /kurssit/ELEC-E3140/

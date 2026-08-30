@@ -3,8 +3,6 @@ layout: page
 title: "PHYS-E0565: Programming Course on Monte Carlo Particle Transport Simulations"
 course_code: PHYS-E0565
 credits: 5
-last_reviewed:
-short_title: Monte Carlo Particle Transport
 lang: en
 default_lang: en
 permalink: /kurssit/PHYS-E0565/
