@@ -1,0 +1,13 @@
+MS-E1462:
+  default: contact
+  methods:
+    contact:
+      label:
+        fi: Kontaktiopetus
+        en: Contact teaching
+        sv: Kontaktundervisning
+    exercise-set:
+      label:
+        fi: Laaja tehtäväsarja
+        en: Extended exercise set
+        sv: Omfattande övningsserie

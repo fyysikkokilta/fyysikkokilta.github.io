@@ -1,5 +1,7 @@
 {% if page.course_code %}
   {% assign translations = site.pages | where: "course_code", page.course_code %}
+  {% assign course_options = site.data.course_options[page.course_code] %}
+  {% assign current_method = page.completion_method | default: course_options.default %}
 {% elsif page.translation_key %}
   {% assign translations = site.pages | where: "translation_key", page.translation_key %}
 {% endif %}
@@ -9,7 +11,18 @@
     {% assign languages = "fi,en,sv" | split: "," %}
 
     {% for lang in languages %}
-      {% assign translation = translations | where: "lang", lang | first %}
+      {% if course_options %}
+        {% assign translation = nil %}
+        {% for candidate in translations %}
+          {% assign candidate_method = candidate.completion_method | default: course_options.default %}
+          {% if candidate.lang == lang and candidate_method == current_method %}
+            {% assign translation = candidate %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% assign translation = translations | where: "lang", lang | first %}
+      {% endif %}
 
       {% if translation %}
         {% if translation.url == page.url %}

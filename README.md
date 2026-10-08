@@ -159,6 +159,14 @@ Tärkeät kurssikentät:
 
 Kurssilistaus hakee kurssit automaattisesti sivuilta, joilla on `course_code`. Kurssia ei siis tarvitse lisätä erikseen listaan.
 
+### Useita suoritustapoja
+
+Jos kurssilla on useita suoritustapoja, sivut voi ryhmitellä kurssikoodin mukaiseen hakemistoon. Esimerkiksi MS-E1462:n vaihtoehtoinen suoritustapa on tiedostossa `kurssit/MS-E1462/exercise-set/index.md`. `index.md` tuottaa hakemiston mukaisen osoitteen ilman erillistä `permalink`-kenttää.
+
+Kurssin oletustapa ja kaikkien tapojen kielikohtaiset nimet määritellään tiedostossa `_data/course_options.yml`. Sivulla riittää vaihtoehtoiselle tavalle kenttä `completion_method`, jonka arvon pitää vastata rekisterin avainta. Oletustavan sivu voi jättää kentän pois. Jos oletustavan sivua ei vielä ole, kurssilistaus ja kurssilinkit käyttävät saatavilla olevaa vaihtoehtoista sivua.
+
+Esimerkiksi oletustavan sivu voi olla `kurssit/MS-E1462/index.md` ja lisävaihtoehto `kurssit/MS-E1462/exercise-set/index.md`. Tällöin osoitteet ovat `/kurssit/MS-E1462/` ja `/kurssit/MS-E1462/exercise-set/`.
+
 ## Kurssisivun sisältö
 
 Kurssisivuilla kannattaa käyttää suunnilleen samaa rakennetta, jotta opas pysyy helppona lukea:

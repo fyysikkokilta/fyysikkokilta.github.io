@@ -1,0 +1,37 @@
+{% assign course_options = site.data.course_options[page.course_code] %}
+{% if course_options.methods.size > 1 %}
+  {% assign current_method = page.completion_method | default: course_options.default %}
+  {% assign course_pages = site.pages | where: "course_code", page.course_code %}
+  <nav class="completion-method-switcher" aria-label="Completion methods">
+    {% for method_entry in course_options.methods %}
+      {% assign method_id = method_entry[0] %}
+      {% assign method = method_entry[1] %}
+      {% assign method_label = method.label[page.lang] | default: method.label[page.default_lang] | default: method_id %}
+      {% assign method_page = nil %}
+      {% for candidate in course_pages %}
+        {% assign candidate_method = candidate.completion_method | default: course_options.default %}
+        {% if candidate_method == method_id and candidate.lang == page.lang %}
+          {% assign method_page = candidate %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      {% unless method_page %}
+        {% for candidate in course_pages %}
+          {% assign candidate_method = candidate.completion_method | default: course_options.default %}
+          {% if candidate_method == method_id and candidate.lang == page.default_lang %}
+            {% assign method_page = candidate %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% endunless %}
+
+      {% if method_id == current_method %}
+        <strong aria-current="page">{{ method_label }}</strong>
+      {% elsif method_page %}
+        <a href="{{ method_page.url | relative_url }}">{{ method_label }}</a>
+      {% else %}
+        <span class="missing-method" aria-disabled="true">{{ method_label }}</span>
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}

@@ -52,8 +52,34 @@
 
     {% if pattern_matches %}
       {% assign is_default_course_page = false %}
+      {% assign course_options = site.data.course_options[course.course_code] %}
 
-      {% if course.lang == course.default_lang or course.default_lang == nil %}
+      {% if course_options %}
+        {% assign course_pages = site.pages | where: "course_code", course.course_code %}
+        {% assign has_default_method_page = false %}
+        {% for candidate in course_pages %}
+          {% assign candidate_method = candidate.completion_method | default: course_options.default %}
+          {% if candidate_method == course_options.default %}
+            {% assign has_default_method_page = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        {% if has_default_method_page %}
+          {% assign course_method = course.completion_method | default: course_options.default %}
+          {% if course_method == course_options.default %}
+            {% if course.lang == course.default_lang or course.default_lang == nil %}
+              {% assign is_default_course_page = true %}
+            {% endif %}
+          {% endif %}
+        {% else %}
+          {% assign fallback_page = course_pages | first %}
+          {% if course.completion_method == fallback_page.completion_method %}
+            {% if course.lang == course.default_lang or course.default_lang == nil %}
+              {% assign is_default_course_page = true %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% elsif course.lang == course.default_lang or course.default_lang == nil %}
         {% assign is_default_course_page = true %}
       {% endif %}
     {% endif %}
@@ -163,15 +189,76 @@
 
         {% if pattern_matches %}
           {% assign is_default_course_page = false %}
+              {% assign course_options = site.data.course_options[course.course_code] %}
 
-          {% if course.lang == course.default_lang or course.default_lang == nil %}
+              {% if course_options %}
+                {% assign course_pages = site.pages | where: "course_code", course.course_code %}
+                {% assign has_default_method_page = false %}
+                {% for candidate in course_pages %}
+                  {% assign candidate_method = candidate.completion_method | default: course_options.default %}
+                  {% if candidate_method == course_options.default %}
+                    {% assign has_default_method_page = true %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                {% if has_default_method_page %}
+                  {% assign course_method = course.completion_method | default: course_options.default %}
+                  {% if course_method == course_options.default %}
+                    {% if course.lang == course.default_lang or course.default_lang == nil %}
+                      {% assign is_default_course_page = true %}
+                    {% endif %}
+                  {% endif %}
+                {% else %}
+                  {% assign fallback_page = course_pages | first %}
+                  {% if course.completion_method == fallback_page.completion_method %}
+                    {% if course.lang == course.default_lang or course.default_lang == nil %}
+                      {% assign is_default_course_page = true %}
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+              {% elsif course.lang == course.default_lang or course.default_lang == nil %}
             {% assign is_default_course_page = true %}
           {% endif %}
         {% endif %}
 
         {% if pattern_matches and is_default_course_page %}
           {% assign translations = site.pages | where: "course_code", course.course_code %}
-          {% assign target = translations | where: "lang", page.lang | first %}
+          {% assign course_options = site.data.course_options[course.course_code] %}
+          {% if course_options %}
+            {% assign has_default_method_page = false %}
+            {% for candidate in translations %}
+              {% assign candidate_method = candidate.completion_method | default: course_options.default %}
+              {% if candidate_method == course_options.default %}
+                {% assign has_default_method_page = true %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            {% assign fallback_page = translations | first %}
+            {% assign target_method = fallback_page.completion_method %}
+            {% if has_default_method_page %}
+              {% assign target_method = course_options.default %}
+            {% endif %}
+            {% assign target = nil %}
+            {% assign default_language_target = nil %}
+            {% assign any_method_target = nil %}
+            {% for candidate in translations %}
+              {% assign candidate_method = candidate.completion_method | default: course_options.default %}
+              {% if candidate_method == target_method %}
+                {% if candidate.lang == page.lang %}
+                  {% assign target = candidate %}
+                  {% break %}
+                {% elsif candidate.lang == course.default_lang %}
+                  {% assign default_language_target = candidate %}
+                {% endif %}
+                {% assign any_method_target = candidate %}
+              {% endif %}
+            {% endfor %}
+            {% unless target %}
+              {% assign target = default_language_target | default: any_method_target %}
+            {% endunless %}
+          {% else %}
+            {% assign target = translations | where: "lang", page.lang | first %}
+          {% endif %}
 
           {% unless target %}
             {% assign target = translations | where: "lang", course.default_lang | first %}

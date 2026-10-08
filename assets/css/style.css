@@ -247,7 +247,8 @@ a:focus-visible {
   margin: 0;
 }
 
-.language-switcher {
+.language-switcher,
+.completion-method-switcher {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -259,7 +260,10 @@ a:focus-visible {
 
 .language-switcher a,
 .language-switcher strong,
-.language-switcher span {
+.language-switcher span,
+.completion-method-switcher a,
+.completion-method-switcher strong,
+.completion-method-switcher span {
   display: inline-flex;
   min-width: 2.35rem;
   justify-content: center;
@@ -271,23 +275,32 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-.language-switcher a {
+.language-switcher a,
+.completion-method-switcher a {
   background: var(--surface);
   text-decoration: none;
 }
 
-.language-switcher a:hover {
+.language-switcher a:hover,
+.completion-method-switcher a:hover {
   border-color: var(--accent);
   background: var(--accent-soft);
 }
 
-.language-switcher strong {
+.language-switcher strong,
+.completion-method-switcher strong {
   border-color: var(--accent);
   background: var(--accent);
   color: #fff;
 }
 
 .missing-language {
+  color: var(--danger);
+  background: #fff6f6;
+  text-decoration: none;
+}
+
+.missing-method {
   color: var(--danger);
   background: #fff6f6;
   text-decoration: none;

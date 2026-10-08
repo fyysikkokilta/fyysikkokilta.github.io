@@ -1,12 +1,46 @@
 {%- assign candidates = site.pages | where: "course_code", include.code -%}
 {%- if candidates.size > 0 -%}
-  {%- assign target = candidates | where: "lang", page.lang | first -%}
-  {%- unless target -%}
-    {%- assign target = candidates | where: "lang", include.fallback_lang | first -%}
-  {%- endunless -%}
-  {%- unless target -%}
-    {%- assign target = candidates | first -%}
-  {%- endunless -%}
+  {%- assign course_options = site.data.course_options[include.code] -%}
+  {%- if course_options -%}
+    {%- assign default_method = course_options.default -%}
+    {%- assign target = nil -%}
+    {%- assign fallback_target = nil -%}
+    {%- for candidate in candidates -%}
+      {%- assign candidate_method = candidate.completion_method | default: default_method -%}
+      {%- if candidate_method == default_method -%}
+        {%- if candidate.lang == page.lang -%}
+          {%- assign target = candidate -%}
+          {%- break -%}
+        {%- elsif candidate.lang == include.fallback_lang -%}
+          {%- assign fallback_target = candidate -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- unless target -%}
+      {%- assign target = fallback_target -%}
+    {%- endunless -%}
+    {%- unless target -%}
+      {%- assign fallback_page = candidates | first -%}
+      {%- assign fallback_method = fallback_page.completion_method -%}
+      {%- for candidate in candidates -%}
+        {%- if candidate.completion_method == fallback_method and candidate.lang == page.lang -%}
+          {%- assign target = candidate -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endunless -%}
+    {%- unless target -%}
+      {%- assign target = candidates | first -%}
+    {%- endunless -%}
+  {%- else -%}
+    {%- assign target = candidates | where: "lang", page.lang | first -%}
+    {%- unless target -%}
+      {%- assign target = candidates | where: "lang", include.fallback_lang | first -%}
+    {%- endunless -%}
+    {%- unless target -%}
+      {%- assign target = candidates | first -%}
+    {%- endunless -%}
+  {%- endif -%}
   <a class="course-link course-link-existing" href="{{ target.url | relative_url }}">{{ include.text | default: target.title }}</a>
 {%- else -%}
   {%- assign pattern_candidates = site.pages | where: "course_pattern", include.code -%}
