@@ -163,9 +163,55 @@ Kurssilistaus hakee kurssit automaattisesti sivuilta, joilla on `course_code`. K
 
 Jos kurssilla on useita suoritustapoja, sivut voi ryhmitellä kurssikoodin mukaiseen hakemistoon. Esimerkiksi MS-E1462:n vaihtoehtoinen suoritustapa on tiedostossa `kurssit/MS-E1462/exercise-set/index.md`. `index.md` tuottaa hakemiston mukaisen osoitteen ilman erillistä `permalink`-kenttää.
 
-Kurssin oletustapa ja kaikkien tapojen kielikohtaiset nimet määritellään tiedostossa `_data/course_options.yml`. Sivulla riittää vaihtoehtoiselle tavalle kenttä `completion_method`, jonka arvon pitää vastata rekisterin avainta. Oletustavan sivu voi jättää kentän pois. Jos oletustavan sivua ei vielä ole, kurssilistaus ja kurssilinkit käyttävät saatavilla olevaa vaihtoehtoista sivua.
+Kurssin oletustapa ja kaikkien tapojen kielikohtaiset nimet määritellään tiedostossa `_data/course_options.yml`. Sivulla riittää vaihtoehtoiselle tavalle kenttä `completion_method`, jonka arvon pitää vastata rekisterin avainta. Oletustavan sivusta voi jättää kentän pois. Jos oletustavan sivua ei vielä ole, kurssilistaus ja kurssilinkit käyttävät saatavilla olevaa vaihtoehtoista sivua.
 
 Esimerkiksi oletustavan sivu voi olla `kurssit/MS-E1462/index.md` ja lisävaihtoehto `kurssit/MS-E1462/exercise-set/index.md`. Tällöin osoitteet ovat `/kurssit/MS-E1462/` ja `/kurssit/MS-E1462/exercise-set/`.
+
+Käytännössä suoritustavat voi lisätä kolmivaiheisesti:
+
+#### Vaihe 1: Suoritustapojen lisääminen
+Lisää tiedostoon `_data/course_options.yml` kurssia vastaavat suoritustavat. Esimerkiksi:
+
+```markdown
+MS-E1462:
+  default: contact
+  methods:
+    contact:
+      label:
+        fi: Kontaktiopetus
+        en: Contact teaching
+        sv: Kontaktundervisning
+    exercise-set:
+      label:
+        fi: Tehtäväsarja
+        en: Exercise set
+        sv: Övningsserie
+    project:
+      label:
+        fi: Ryhmätyö
+        en: Group project
+        sv: Gruppprojekt
+```
+
+#### Vaihe 2: Sivujen luominen
+Kansiorakenne voi näyttää esimerkiksi tältä `kurssit/MS-A0000/`.
+
+- `index.md`: oletuskielinen kurssisivu (tässä tapauksessa englanti). Oletussuoritustapa (tässä tapauksessa `contact`).
+- `index_fi.md`: mahdollinen suomenkielinen versio.
+- `index_sv.md`: mahdollinen ruotsinkielinen versio.
+- `exercise-set/`: vaihtoehtoinen suoritustapa
+- `exercise-set/index.md`: oletuskielinen sivu
+- `exercise-set/index_fi.md`: mahdollinen suomenkielinen versio
+- `project/`: vaihtoehtoinen suoritustapa
+- `project/index.md`: oletuskielinen sivu
+- `project/index_fi.md`: mahdollinen suomenkielinen versio
+
+#### Vaihe 3: Metadata
+Lisää sivujen metadataan suoritustapa. Esimerkiksi:
+
+```markdown
+completion_method: exercise-set
+```
 
 ## Kurssisivun sisältö
 
