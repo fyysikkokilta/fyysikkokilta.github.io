@@ -173,7 +173,7 @@ Käytännössä suoritustavat voi lisätä kolmivaiheisesti:
 Lisää tiedostoon `_data/course_options.yml` kurssia vastaavat suoritustavat. Esimerkiksi:
 
 ```markdown
-MS-E1462:
+MS-A0000:
   default: contact
   methods:
     contact:
@@ -190,7 +190,7 @@ MS-E1462:
       label:
         fi: Ryhmätyö
         en: Group project
-        sv: Gruppprojekt
+        sv: Grupprojekt
 ```
 
 #### Vaihe 2: Sivujen luominen
